@@ -1,0 +1,131 @@
+/* 
+ * 中道与平衡页面专用样式 - 添加佛学元素
+ * Balance Page Specific Styles with Buddhist Elements
+ */
+
+body {
+    background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+    position: relative;
+}
+
+/* 平衡页背景装饰 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 35% 45%, rgba(91, 33, 182, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 65% 55%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    border-top: 6px solid #7c3aed;
+    position: relative;
+}
+
+/* 容器装饰 - 天平图案 */
+.container::before {
+    content: '⚖️';
+    position: absolute;
+    top: 120px;
+    left: -40px;
+    font-size: 2.5em;
+    opacity: 0.15;
+    transform: rotate(-90deg);
+}
+
+.header {
+    background: linear-gradient(135deg, #5b21b6 0%, #6d28d9 100%);
+    position: relative;
+}
+
+/* 头部法轮装饰 */
+.header::after {
+    content: '☸';
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%) rotate(45deg);
+    font-size: 5em;
+    opacity: 0.15;
+}
+
+.nav-bar a {
+    color: #5b21b6;
+}
+
+.nav-bar a:hover {
+    color: #6d28d9;
+}
+
+.section h2 {
+    color: #5b21b6;
+}
+
+.section h3 {
+    color: #6d28d9;
+}
+
+.quote {
+    background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+    color: #6b21a6;
+}
+
+.balance-wheel {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.balance-item {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ec 100%);
+    border: 2px solid #6d28d9;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.balance-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(109, 40, 217, 0.2);
+}
+
+.balance-item .icon {
+    font-size: 2em;
+    margin-bottom: 8px;
+}
+
+.balance-item h4 {
+    color: #5b21b6;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.balance-item p {
+    font-size: 0.95em;
+    color: #666;
+    line-height: 1.6;
+}
+
+.back-link {
+    background: linear-gradient(135deg, #5b21b6 0%, #6d28d9 100%);
+}
+
+.back-link:hover {
+    box-shadow: 0 5px 15px rgba(91, 33, 182, 0.4);
+}
+
+@media (max-width: 600px) {
+    .balance-wheel {
+        grid-template-columns: 1fr;
+    }
+}

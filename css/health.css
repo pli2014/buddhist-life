@@ -1,0 +1,85 @@
+/* 
+ * 身心健康页面专用样式 - 添加佛学元素
+ * Health Page Specific Styles with Buddhist Elements
+ */
+
+body {
+    background: linear-gradient(135deg, #6b7280 0%, #9ca3af 100%);
+    position: relative;
+}
+
+/* 健康页背景纹理 */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+        radial-gradient(circle at 30% 40%, rgba(139, 69, 19, 0.05) 0%, transparent 50%),
+        radial-gradient(circle at 70% 60%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.container {
+    border-top: 6px solid #8b4513;
+    position: relative;
+}
+
+/* 容器侧边装饰 */
+.container::before {
+    content: '🧘';
+    position: absolute;
+    top: 100px;
+    left: -40px;
+    font-size: 3em;
+    opacity: 0.15;
+    transform: rotate(-90deg);
+}
+
+.header {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+    position: relative;
+}
+
+/* 头部禅修图案 */
+.header::after {
+    content: '☸';
+    position: absolute;
+    top: 50%;
+    right: 30px;
+    transform: translateY(-50%);
+    font-size: 5em;
+    opacity: 0.15;
+}
+
+.nav-bar a {
+    color: #8b4513;
+}
+
+.nav-bar a:hover {
+    color: #a0522d;
+}
+
+.section h2 {
+    color: #8b4513;
+}
+
+.section h3 {
+    color: #a0522d;
+}
+
+.quote {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    color: #78350f;
+}
+
+.back-link {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+}
+
+.back-link:hover {
+    box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+}

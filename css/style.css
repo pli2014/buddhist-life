@@ -1,0 +1,866 @@
+/* 
+ * 全局样式 - 添加佛学元素背景
+ * Global Styles with Buddhist Elements
+ */
+
+/* ========== 基础重置 ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* 引入本地佛学风格字体 */
+@font-face {
+    font-family: 'Noto Serif SC';
+    src: url('../fonts/NotoSansCJKsc-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Ma Shan Zheng';
+    src: url('../fonts/MaShanZheng-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+body {
+    font-family: 'Noto Serif SC', 'STSong', 'SimSun', serif;
+    line-height: 1.8;
+    color: #1a1a1a;  /* 墨黑色 - 传统书法用墨色 */
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+    min-height: 100vh;
+    padding: 20px;
+    position: relative;
+}
+
+/* 背景装饰 - 三层金色光晕 */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(212, 175, 55, 0.06) 0%, transparent 50%),
+        radial-gradient(circle at 50% 50%, rgba(212, 175, 55, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+    z-index: -2;
+}
+
+/* ========== 容器 ========== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.98);
+    border-radius: 15px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+    overflow: hidden;
+    position: relative;
+}
+
+/* 容器装饰边框 - 莲花图案 */
+.container::before {
+    content: '❀';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    color: rgba(212, 175, 55, 0.2);
+    pointer-events: none;
+}
+
+.container::after {
+    content: '❀';
+    position: absolute;
+    bottom: 10px;
+    left: 15px;
+    font-size: 2em;
+    color: rgba(212, 175, 55, 0.2);
+    pointer-events: none;
+}
+
+/* ========== 头部样式 ========== */
+.header {
+    color: white;
+    padding: 25px 30px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 头部装饰 - 法轮图案 */
+.header::before {
+    content: '☸';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 6em;
+    opacity: 0.1;
+    pointer-events: none;
+}
+
+.header h1 {
+    font-size: 2em;
+    margin-bottom: 8px;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+    color: #f5f5f5;  /* 浅白，保持对比 */
+}
+
+.header p {
+    font-size: 1em;
+    opacity: 0.95;
+    position: relative;
+    z-index: 1;
+    color: #e0e0e0;  /* 柔和白色 */
+}
+
+/* ========== 导航栏 ========== */
+.nav-bar {
+    background: linear-gradient(to right, #f8f9fa, #ffffff, #f8f9fa);
+    padding: 10px 30px;
+    border-bottom: 2px solid #e5e7eb;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+/* 隐藏滚动条 */
+.nav-bar::-webkit-scrollbar {
+    display: none;
+}
+
+/* 导航栏装饰线 */
+.nav-bar::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, transparent, #d4af37, transparent);
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-right: 15px;
+}
+
+.home-indicator {
+    color: #666;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.nav-right::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-bar a {
+    text-decoration: none;
+    font-size: 0.85em;
+    transition: all 0.3s;
+    font-weight: 500;
+    position: relative;
+    white-space: nowrap;
+    flex-shrink: 0;
+    color: #1a1a1a;  /* 墨黑色导航文字 */
+}
+
+.nav-bar a:hover {
+    opacity: 0.8;
+}
+
+/* 返回首页链接特殊样式 */
+.back-home {
+    color: #d4af37;  /* 保持金色，突出重要性 */
+    font-weight: 600;
+    padding: 4px 8px;
+    border-radius: 5px;
+    background: rgba(212, 175, 55, 0.05);
+}
+
+.back-home:hover {
+    background: rgba(212, 175, 55, 0.15);
+}
+
+/* 子页面导航链接 */
+.nav-link {
+    color: #1a1a1a;  /* 墨黑色导航链接 */
+    padding: 4px 8px;
+    border-radius: 5px;
+    transition: all 0.3s;
+    border: 1px solid transparent;
+}
+
+.nav-link:hover {
+    background: rgba(212, 175, 55, 0.1);
+    color: #92400e;  /* 深橙色悬停 */
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+/* 当前激活的导航链接 */
+.nav-link.active {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.25) 100%);
+    color: #92400e;  /* 深橙色激活状态 */
+    border-color: #d4af37;
+    font-weight: 600;
+    box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+}
+
+/* 移动端滚动提示 */
+.scroll-hint {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 40px;
+    background: linear-gradient(to right, transparent, rgba(255,255,255,0.9));
+    pointer-events: none;
+    opacity: 0.8;
+    transition: opacity 0.3s;
+}
+
+.scroll-hint::after {
+    content: '›';
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5em;
+    color: #d4af37;
+    animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.4; }
+    50% { opacity: 1; }
+}
+
+/* ========== 内容区域 ========== */
+.content {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+/* 容器角落装饰 - 莲花符号 */
+.container::before {
+    content: '❀';
+    position: absolute;
+    top: -15px;
+    left: 30px;
+    font-size: 2em;
+    color: #d4af37;
+    opacity: 0.6;
+}
+
+.container::after {
+    content: '❀';
+    position: absolute;
+    bottom: -15px;
+    right: 30px;
+    font-size: 2em;
+    color: #d4af37;
+    opacity: 0.6;
+}
+
+/* ========== 章节样式 ========== */
+.section {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+.section h2 {
+    color: #1a1a1a;  /* 墨黑色标题 */
+    margin-bottom: 20px;
+    font-size: 1.8em;
+    font-weight: 600;
+    position: relative;
+    padding-left: 30px;
+}
+
+.section h2::before {
+    content: '🪷';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.2em;
+}
+
+.section h3 {
+    color: #2b2b2b;  /* 深灰黑，次级标题 */
+    margin: 25px 0 15px 0;
+    font-size: 1.4em;
+    font-weight: 600;
+}
+
+.section p {
+    color: #1a1a1a;  /* 墨黑色正文 */
+    margin-bottom: 15px;
+    font-size: 1.05em;
+    line-height: 2;
+    text-align: justify;
+}
+
+/* ========== 高亮文本 ========== */
+.highlight {
+    color: #92400e;  /* 深橙色，更沉稳 */
+    font-weight: 600;
+    background: linear-gradient(to bottom, transparent 60%, rgba(212, 175, 55, 0.2) 60%);
+    padding: 0 3px;
+}
+
+/* ========== 引用框 ========== */
+.quote {
+    background: linear-gradient(to right, #f9f9f9, #ffffff);
+    border-left: 4px solid #d4af37;
+    padding: 20px 25px;
+    margin: 20px 0;
+    font-style: italic;
+    color: #2b2b2b;  /* 深灰黑引用文本 */
+    position: relative;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+}
+
+/* 引用框装饰 - 大型引号 */
+.quote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 4em;
+    color: #d4af37;
+    opacity: 0.3;
+    font-family: Georgia, serif;
+}
+
+/* ========== 智慧盒 ========== */
+.wisdom-box {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px 0;
+    position: relative;
+}
+
+/* 智慧盒装饰 - 星形角标 */
+.wisdom-box::before {
+    content: '✦';
+    position: absolute;
+    top: -12px;
+    right: 20px;
+    font-size: 1.8em;
+    color: #d4af37;
+    background: white;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.wisdom-box h3 {
+    color: #1a1a1a;  /* 墨黑色标题 */
+    margin-bottom: 15px;
+    font-size: 1.3em;
+}
+
+.wisdom-box ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.wisdom-box li {
+    color: #1a1a1a;  /* 墨黑色列表文本 */
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    line-height: 1.8;
+}
+
+.wisdom-box li::before {
+    content: '•';
+    color: #d4af37;
+    font-weight: bold;
+    position: absolute;
+    left: 5px;
+    font-size: 1.5em;
+    line-height: 1.5;
+}
+
+/* 故事盒 */
+.story-box {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 25px;
+    margin: 25px 0;
+    border-left: 4px solid #d4af37;
+    position: relative;
+}
+
+/* 故事盒装饰 - 书本图标 */
+.story-box::before {
+    content: '📖';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    font-size: 1.8em;
+    background: white;
+    padding: 5px;
+    border-radius: 5px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.story-box h4 {
+    color: #1a1a1a;  /* 墨黑色标题 */
+    margin-bottom: 15px;
+    font-size: 1.2em;
+}
+
+.story-box p {
+    color: #1a1a1a;  /* 墨黑色段落 */
+    line-height: 1.9;
+}
+
+/* ========== 实践盒 ========== */
+.practice-box {
+    background: linear-gradient(135deg, #faf9f7 0%, #f5f4f2 100%);
+    border: 2px solid #a8a29e;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    position: relative;
+}
+
+.practice-box h4 {
+    color: #57534e;
+    font-size: 1.3em;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.practice-box ol {
+    margin-left: 25px;
+}
+
+.practice-box li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+/* ========== 故事盒 ========== */
+.story-box {
+    background: linear-gradient(135deg, #f5f5f4 0%, #ebebe9 100%);
+    border-left: 5px solid #78716c;
+    padding: 20px;
+    margin: 25px 0;
+    border-radius: 8px;
+    position: relative;
+}
+
+/* 故事盒图标 */
+.story-box::before {
+    content: '📖';
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    font-size: 1.5em;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.story-box h4 {
+    color: #44403c;
+    font-size: 1.3em;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+/* ========== 返回链接 ========== */
+.back-link {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 25px;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: all 0.3s;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+}
+
+.back-link::before {
+    content: '←';
+    margin-right: 8px;
+    transition: transform 0.3s;
+}
+
+.back-link:hover::before {
+    transform: translateX(-5px);
+}
+
+.back-link:hover {
+    transform: translateY(-2px);
+}
+
+/* ========== 分隔符 ========== */
+.lotus-divider {
+    text-align: center;
+    font-size: 2em;
+    margin: 30px 0;
+    color: #d4af37;
+    opacity: 0.6;
+    letter-spacing: 10px;
+}
+
+/* ========== 佛学语录样式 ========== */
+
+/* 毛笔字风格标题 */
+.calligraphy-title {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 2.5em;
+    color: #1a1a1a;  /* 墨黑色，更显庄重 */
+    text-align: center;
+    margin: 30px 0;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 8px;
+}
+
+/* 佛经引用框 - 卷轴样式 */
+.sutra-quote {
+    background: linear-gradient(to bottom, #faf8f3 0%, #f5f1e8 100%);
+    border-left: 5px solid #d4af37;
+    border-right: 5px solid #d4af37;
+    padding: 25px 30px;
+    margin: 25px 0;
+    position: relative;
+    box-shadow: 
+        0 4px 15px rgba(0,0,0,0.1),
+        inset 0 0 30px rgba(212, 175, 55, 0.05);
+    font-style: italic;
+}
+
+/* 卷轴装饰 */
+.sutra-quote::before,
+.sutra-quote::after {
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 100%;
+    top: 0;
+    background: linear-gradient(to right, #d4af37, #c9a227);
+    border-radius: 3px;
+}
+
+.sutra-quote::before {
+    left: -15px;
+}
+
+.sutra-quote::after {
+    right: -15px;
+}
+
+.sutra-quote p {
+    font-size: 1.15em;
+    line-height: 2;
+    color: #1a1a1a;  /* 墨黑色经文 */
+    margin-bottom: 15px;
+}
+
+.sutra-source {
+    text-align: right;
+    color: #92400e;  /* 深橙色出处 */
+    font-weight: 600;
+    font-size: 0.95em;
+    margin-top: 15px;
+    font-family: 'Ma Shan Zheng', cursive;
+}
+
+/* 禅语卡片 */
+.zen-card {
+    background: white;
+    border: 2px solid #d4af37;
+    border-radius: 10px;
+    padding: 30px;
+    margin: 25px 0;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.15);
+}
+
+/* 禅语卡片角落装饰 */
+.zen-card::before {
+    content: '☸';
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2em;
+    opacity: 0.2;
+    color: #d4af37;
+}
+
+.zen-card .zen-text {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 1.8em;
+    color: #1a1a1a;  /* 墨黑色禅语 */
+    text-align: center;
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.zen-card .zen-explanation {
+    font-size: 1em;
+    color: #2b2b2b;  /* 深灰黑解释 */
+    text-align: center;
+    line-height: 1.8;
+    border-top: 1px solid #e5e7eb;
+    padding-top: 15px;
+}
+
+/* 偈语框 */
+.gatha-box {
+    background: linear-gradient(135deg, #fff9e6 0%, #fff3cd 100%);
+    border: 3px double #d4af37;
+    padding: 25px;
+    margin: 25px 0;
+    text-align: center;
+    position: relative;
+}
+
+.gatha-box::before {
+    content: '❀';
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2em;
+    color: #d4af37;
+    background: white;
+    padding: 0 15px;
+    border-radius: 50%;
+}
+
+.gatha-text {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 1.6em;
+    color: #1a1a1a;  /* 墨黑色偈语 */
+    margin-top: 15px;
+    line-height: 2;
+    letter-spacing: 3px;
+}
+
+.gatha-meaning {
+    margin-top: 15px;
+    font-size: 0.95em;
+    color: #2b2b2b;  /* 深灰黑释义 */
+    font-style: italic;
+}
+
+/* 心经摘录 */
+.heart-sutra {
+    background: linear-gradient(to bottom, #ffffff 0%, #f8f9fa 100%);
+    border: 1px solid #d4af37;
+    border-radius: 15px;
+    padding: 30px;
+    margin: 25px 0;
+    position: relative;
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.1);
+}
+
+.heart-sutra::before {
+    content: '《心经》';
+    position: absolute;
+    top: -12px;
+    left: 30px;
+    background: #d4af37;
+    color: white;
+    padding: 5px 20px;
+    border-radius: 20px;
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 1.1em;
+}
+
+.heart-sutra-content {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 1.1em;
+    line-height: 2.2;
+    color: #1a1a1a;  /* 墨黑色心经内容 */
+    text-align: justify;
+}
+
+.heart-sutra-content p {
+    margin-bottom: 12px;
+    text-indent: 2em;
+}
+
+/* 名言横幅 */
+.wisdom-banner {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    color: #d4af37;
+    padding: 20px 30px;
+    margin: 25px 0;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.wisdom-banner::before {
+    content: '✦';
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    opacity: 0.3;
+}
+
+.wisdom-banner::after {
+    content: '✦';
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2em;
+    opacity: 0.3;
+}
+
+.wisdom-banner p {
+    font-family: 'Ma Shan Zheng', cursive;
+    font-size: 1.5em;
+    letter-spacing: 4px;
+    color: #d4af37;  /* 金色横幅文字 */
+}
+
+/* ========== 响应式设计 ========== */
+@media (max-width: 600px) {
+    body {
+        padding: 10px;
+    }
+
+    .header {
+        padding: 20px 20px;
+    }
+
+    .header h1 {
+        font-size: 1.6em;
+    }
+
+    .content {
+        padding: 25px 20px;
+    }
+
+    .section h2 {
+        font-size: 1.5em;
+    }
+
+    .section p {
+        font-size: 1em;
+    }
+
+    .nav-bar {
+        padding: 8px 15px;
+        flex-direction: row;
+        gap: 0;
+    }
+
+    .nav-left {
+        margin-right: 10px;
+    }
+
+    .back-home {
+        font-size: 0.8em;
+        padding: 3px 6px;
+    }
+
+    .nav-right {
+        gap: 5px;
+    }
+
+    .nav-link {
+        font-size: 0.75em;
+        padding: 3px 6px;
+    }
+
+    .container::before,
+    .container::after {
+        font-size: 1.5em;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 375px) {
+    .nav-bar {
+        padding: 6px 10px;
+    }
+    
+    .nav-link {
+        font-size: 0.7em;
+        padding: 2px 5px;
+    }
+    
+    .back-home {
+        font-size: 0.75em;
+    }
+}
+
+/* ========== 打印样式 ========== */
+@media print {
+    body {
+        background: white;
+        padding: 0;
+    }
+
+    body::before {
+        display: none;
+    }
+
+    .container {
+        box-shadow: none;
+    }
+
+    .container::before,
+    .container::after {
+        display: none;
+    }
+
+    .nav-bar,
+    .back-link {
+        display: none;
+    }
+}
