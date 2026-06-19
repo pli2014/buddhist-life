@@ -5,6 +5,7 @@
 
 // 页面配置数据
 const pages = [
+    { id: 'life-system', name: '生命系统', path: 'life-system.html', icon: '🧬' },
     { id: 'health', name: '身心健康', path: 'health.html', icon: '🧘' },
     { id: 'wealth', name: '财富福报', path: 'wealth.html', icon: '💰' },
     { id: 'courage', name: '勇气改变', path: 'courage.html', icon: '🦋' },
@@ -18,7 +19,7 @@ const pages = [
 function getCurrentPageId() {
     const pathname = window.location.pathname;
     const filename = pathname.split('/').pop() || 'index.html';
-    
+
     // 映射文件名到页面ID
     const pageMap = {
         'index.html': 'index',
@@ -26,9 +27,10 @@ function getCurrentPageId() {
         'wealth.html': 'wealth',
         'courage.html': 'courage',
         'balance.html': 'balance',
-        'hope.html': 'hope'
+        'hope.html': 'hope',
+        'life-system.html': 'life-system'
     };
-    
+
     return pageMap[filename] || 'index';
 }
 
@@ -60,7 +62,7 @@ function getLastVisitedPage() {
 function createHomeLink(currentPageId) {
     const homeLink = document.createElement('div');
     homeLink.className = 'nav-left';
-    
+
     if (currentPageId === 'index') {
         // 首页显示标识
         homeLink.innerHTML = '<span class="home-indicator">🏠 首页</span>';
@@ -75,7 +77,7 @@ function createHomeLink(currentPageId) {
         });
         homeLink.appendChild(link);
     }
-    
+
     return homeLink;
 }
 
@@ -85,39 +87,39 @@ function createHomeLink(currentPageId) {
 function createNavLinks(currentPageId) {
     const navRight = document.createElement('div');
     navRight.className = 'nav-right';
-    
+
     // 过滤掉首页（首页不显示自己的链接）
-    const displayPages = currentPageId === 'index' 
+    const displayPages = currentPageId === 'index'
         ? pages.filter(p => p.id !== 'index')
         : pages;
-    
+
     displayPages.forEach(page => {
         const link = document.createElement('a');
-        
+
         // 设置路径（首页需要特殊处理）
         if (currentPageId === 'index') {
             link.href = `pages/${page.path}`;
         } else {
             link.href = page.id === 'index' ? '../index.html' : page.path;
         }
-        
+
         link.className = 'nav-link';
         link.textContent = page.name;
         link.dataset.pageId = page.id;
-        
+
         // 高亮当前页面
         if (page.id === currentPageId) {
             link.classList.add('active');
         }
-        
+
         // 点击时保存状态
         link.addEventListener('click', function() {
             saveCurrentPage(page.id);
         });
-        
+
         navRight.appendChild(link);
     });
-    
+
     return navRight;
 }
 
@@ -131,23 +133,23 @@ function renderNavigationBar() {
         console.warn('未找到导航栏容器，请在HTML中添加 <div class="nav-bar"></div>');
         return;
     }
-    
+
     const currentPageId = getCurrentPageId();
-    
+
     // 清空现有内容
     existingNav.innerHTML = '';
-    
+
     // 创建并添加左侧区域
     const homeLink = createHomeLink(currentPageId);
     existingNav.appendChild(homeLink);
-    
+
     // 创建并添加右侧导航链接
     const navLinks = createNavLinks(currentPageId);
     existingNav.appendChild(navLinks);
-    
+
     // 保存当前状态
     saveCurrentPage(currentPageId);
-    
+
     // 添加滚动提示（移动端）
     addScrollHint(existingNav);
 }
@@ -158,13 +160,13 @@ function renderNavigationBar() {
 function addScrollHint(navBar) {
     // 检测是否为移动设备
     const isMobile = window.innerWidth <= 600;
-    
+
     if (isMobile && navBar.scrollWidth > navBar.clientWidth) {
         // 添加渐变遮罩提示可以滚动
         const scrollHint = document.createElement('div');
         scrollHint.className = 'scroll-hint';
         navBar.appendChild(scrollHint);
-        
+
         // 3秒后隐藏提示
         setTimeout(() => {
             scrollHint.style.opacity = '0';

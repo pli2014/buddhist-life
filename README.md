@@ -1,5 +1,15 @@
 a# 佛学智慧与人生真谛 - 网站说明
 
+## 📚 文档导航
+
+- **[快速开始](QUICKSTART.md)** - 项目快速上手指南
+- **[工程规范](sdd/SPECIFICATIONS.md)** - 完整的工程规范与变更记录 ⭐
+- **[AI Agent 配置](AGENT.md)** - AI 助手工作流程规范 🤖
+- **[服务器指南](SERVER_GUIDE.md)** - Python HTTP 服务器使用说明
+- **[项目结构](STRUCTURE.md)** - 目录结构说明
+
+---
+
 ## 🎨 导航结构设计
 
 ### 子页面导航布局

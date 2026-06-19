@@ -1,0 +1,442 @@
+/* 
+ * 生命系统结构层次与物质构成图解专用样式
+ * Life System Hierarchy Diagram Styles
+ */
+ .header {
+    background: linear-gradient(135deg, #e2b67e 0%, #ff8901 100%);
+    position: relative;
+}
+
+.intro-text {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 248, 220, 0.95) 100%);
+    padding: 30px;
+    border-radius: 15px;
+    margin-bottom: 30px;
+    box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+    border-left: 6px solid #d4af37;
+}
+
+.intro-text p {
+    color: #1a1a1a;
+    line-height: 2;
+    font-size: 1.05em;
+}
+
+/* 总览图片容器 */
+.overview-image-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 248, 220, 0.95) 100%);
+    padding: 35px 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);
+    border-top: 5px solid #d4af37;
+    text-align: center;
+}
+
+.overview-image-container h2 {
+    color: #1a1a1a;
+    font-size: 1.9em;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.2);
+}
+
+.overview-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    display: block;
+    margin: 0 auto 20px auto;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.overview-image:hover {
+    transform: scale(1.02);
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.35);
+}
+
+.image-caption {
+    color: #666;
+    font-size: 0.95em;
+    font-style: italic;
+    margin-top: 15px;
+    text-align: center;
+}
+
+/* 图解容器 */
+.diagram-container {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 248, 220, 0.95) 100%);
+    padding: 40px 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.25);
+    border-top: 5px solid #d4af37;
+}
+
+.diagram-container h2 {
+    color: #1a1a1a;
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.2);
+}
+
+/* 层次网格布局 */
+.hierarchy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 15px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.grid-item {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 15px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: all 0.3s ease;
+    border-top: 4px solid #4a90e2;
+    position: relative;
+    overflow: hidden;
+}
+
+.grid-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, transparent 0%, rgba(74, 144, 226, 0.03) 100%);
+    pointer-events: none;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(74, 144, 226, 0.25);
+    border-top-color: #d4af37;
+}
+
+.grid-item.highlight {
+    border-top-color: #d4af37;
+    background: linear-gradient(135deg, rgba(255, 248, 220, 0.95) 0%, white 100%);
+    box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+}
+
+.grid-item.highlight:hover {
+    box-shadow: 0 12px 35px rgba(212, 175, 55, 0.35);
+}
+
+.grid-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    filter: drop-shadow(0 3px 6px rgba(0, 0, 0, 0.1));
+}
+
+.grid-item h3 {
+    color: #1a1a1a;
+    font-size: 1.2em;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.grid-desc {
+    color: #2b2b2b;
+    font-size: 0.9em;
+    line-height: 1.5;
+}
+
+/* 层次流向指示 */
+.hierarchy-flow {
+    margin-top: 30px;
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.1) 0%, rgba(212, 175, 55, 0.05) 100%);
+    border-radius: 12px;
+    border: 2px solid rgba(212, 175, 55, 0.3);
+}
+
+.flow-arrow {
+    font-size: 1.5em;
+    color: #92400e;
+    font-weight: bold;
+    margin-bottom: 10px;
+    letter-spacing: 5px;
+}
+
+.flow-description {
+    color: #666;
+    font-size: 0.95em;
+    font-style: italic;
+}
+
+@keyframes arrow-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+
+/* 内容区域 */
+.content-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 248, 220, 0.95) 100%);
+    padding: 35px 30px;
+    border-radius: 20px;
+    margin-bottom: 35px;
+    box-shadow: 0 12px 40px rgba(212, 175, 55, 0.2);
+    border-top: 5px solid #d4af37;
+}
+
+.content-section h2 {
+    color: #1a1a1a;
+    font-size: 1.9em;
+    margin-bottom: 25px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(212, 175, 55, 0.2);
+}
+
+/* 物质构成网格 */
+.material-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.material-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    border-top: 4px solid #4a90e2;
+}
+
+.material-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 35px rgba(74, 144, 226, 0.3);
+    border-top-color: #d4af37;
+}
+
+.material-icon {
+    font-size: 3em;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.material-card h3 {
+    color: #1a1a1a;
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.material-card > p {
+    color: #2b2b2b;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: center;
+    font-style: italic;
+}
+
+.feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.feature-list li {
+    color: #1a1a1a;
+    padding: 8px 0;
+    padding-left: 25px;
+    position: relative;
+    font-size: 0.95em;
+}
+
+.feature-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #d4af37;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+/* 概念框 */
+.concept-box {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-left: 5px solid #d4af37;
+}
+
+.concept-box h3 {
+    color: #1a1a1a;
+    font-size: 1.4em;
+    margin-bottom: 15px;
+}
+
+.concept-box p {
+    color: #2b2b2b;
+    line-height: 1.8;
+    margin-bottom: 10px;
+}
+
+.concept-box ul {
+    color: #1a1a1a;
+    padding-left: 25px;
+    line-height: 2;
+}
+
+.concept-box li {
+    margin-bottom: 8px;
+}
+
+/* 佛学视角 */
+.buddhist-perspective {
+    background: linear-gradient(135deg, rgba(255, 248, 220, 0.98) 0%, rgba(255, 255, 255, 0.95) 100%);
+    padding: 40px 30px;
+    border-radius: 20px;
+    margin-bottom: 40px;
+    box-shadow: 0 15px 50px rgba(212, 175, 55, 0.3);
+    border: 3px solid #d4af37;
+    position: relative;
+    overflow: hidden;
+}
+
+.buddhist-perspective::before {
+    content: '☸';
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 4em;
+    opacity: 0.1;
+    color: #d4af37;
+    animation: dharma-spin 30s linear infinite;
+}
+
+.buddhist-perspective h2 {
+    color: #1a1a1a;
+    font-size: 1.9em;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.wisdom-banner {
+    background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
+    padding: 25px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border-left: 5px solid #d4af37;
+    border-right: 5px solid #d4af37;
+}
+
+.wisdom-banner p {
+    color: #92400e;
+    font-size: 1.3em;
+    font-family: 'Ma Shan Zheng', cursive;
+    text-align: center;
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.wisdom-banner .source {
+    color: #666;
+    font-size: 1em;
+    font-style: italic;
+    text-align: right;
+    margin-top: 10px;
+}
+
+.insight-text {
+    color: #1a1a1a;
+    line-height: 2;
+    font-size: 1.05em;
+}
+
+.insight-text p {
+    margin-bottom: 15px;
+}
+
+.insight-text strong {
+    color: #92400e;
+    font-weight: 600;
+}
+
+.insight-text ul {
+    padding-left: 30px;
+    margin: 15px 0;
+}
+
+.insight-text li {
+    margin-bottom: 10px;
+    line-height: 1.8;
+}
+
+.back-link {
+    background: linear-gradient(135deg, #8b4513 0%, #a0522d 100%);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .level {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+    
+    .level-icon {
+        font-size: 2.5em;
+        margin-bottom: 10px;
+    }
+    
+    .level-content h3 {
+        font-size: 1.3em;
+    }
+    
+    .material-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .hierarchy-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+    
+    .grid-icon {
+        font-size: 2em;
+    }
+    
+    .grid-item h3 {
+        font-size: 1.1em;
+    }
+    
+    .grid-desc {
+        font-size: 0.85em;
+    }
+    
+    .diagram-container,
+    .content-section,
+    .buddhist-perspective {
+        padding: 25px 20px;
+    }
+}
+
+/* 超小屏幕优化 */
+@media (max-width: 480px) {
+    .hierarchy-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .grid-item {
+        padding: 15px 12px;
+    }
+    
+    .flow-arrow {
+        font-size: 1.2em;
+        letter-spacing: 3px;
+    }
+}
